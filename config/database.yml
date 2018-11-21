@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 40
+  timeout: 5000
+  username: postgres
+  password: <%= ENV['OVERRIDE_DB_PASS'] || 'admin' %>
+  host: <%= ENV['OVERRIDE_DB_HOST'] || '127.0.0.1' %>
+  port: 5432
+
+development:
+  <<: *default
+  database: <%= ENV['RAILS_APP_DEVELOPMENT'] || 'rails_app_development' %>
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: <%= ENV['RAILS_APP_TEST'] || 'rails_app_test' %>
+
+production:
+  <<: *default
+  database: <%= ENV['RAILS_APP_PRODUCTION'] || 'rails_app_production' %>
