@@ -1,0 +1,22 @@
+!!!
+%html{lang: 'en'}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Sneakerhead
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    -# Favicon generator: https://realfavicongenerator.net/
+
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+    %meta{ name: 'apple-mobile-web-app-capable', content: 'yes' }
+    %meta{ name: 'mobile-web-app-capable', content: 'yes' }
+    %meta{ name: 'description', content: '' }
+
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload"
+    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Inconsolata", media: "all"
+
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    = yield
